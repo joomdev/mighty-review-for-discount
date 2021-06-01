@@ -9,27 +9,27 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
 ?>
 
-<form class="mighty-go-pro" action="" id="mighty-go-pro" method="POST">
+<div class="mighty-go-pro-page">
 
-    <div class="mighty-licence-box">
-        <div class="product-name">Mighty Review For Discount</div>
+<p class="basic-desc">You are currently on a <strong>Free Version</strong></p>
+<p class="sub-desc">Limited features available in free version.</p>
+
+<hr style="margin: 40px 0;">
+
+<div class="pro-details">
+    <div class="pro-desc">
+        <p class="basic-desc">Need more features?</strong></p>
+        <p class="sub-desc">Updgrade now for more cool and other advanced features.</p>
         
-        <div class="licence-controls">
-            <input type="text" class="regular-text" name="mrfd-licence-key" value="<?php echo $data['licence'] ?>">
+        <a href="#" target="_blank" class="upgrade-btn" role="button">Go Pro 🚀</a>
 
-            <?php if( $data['status'] ) : ?>
-            <?php wp_nonce_field( 'mighty_rfd_nonce', 'mighty_rfd_nonce' ); ?>
-            <input type="submit" name="mighty-deactivate-licence" id="submit" class="button-secondary" value="Deactivate Licence">
-            <?php endif; ?>
-        </div>
-
-        <?php if( ! empty( $data['licenceMsg'] ) ) : ?>
-        <div class="licence-msg">
-            <?php echo $data['licenceMsg']; ?>
-        </div>
-        <?php endif; ?>
-
+        <ul class="pro-features">
+            <li><span class="dashicons dashicons-saved"></span> Lorem ipsum dolor site amet..</li>
+            <li><span class="dashicons dashicons-saved"></span> Lorem ipsum dolor site amet..</li>
+            <li><span class="dashicons dashicons-saved"></span> Lorem ipsum dolor site amet..</li>
+        </ul>
     </div>
-    <?php wp_nonce_field( 'mighty_rfd_nonce', 'mighty_rfd_nonce' ); ?>
-    <p><input type="submit" name="mighty-go-pro" id="submit" class="button button-primary" value="Save Changes"></p>
-</form>
+</div>
+
+
+</div>
