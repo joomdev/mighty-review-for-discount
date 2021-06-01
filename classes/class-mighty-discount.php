@@ -163,25 +163,18 @@ class Mighty_Discount
             'mighty_discount_type' => wc_clean( $_POST['discount_type'] ),
             'mighty_coupon_amount' => wc_format_decimal( $_POST['coupon_amount'] ),
             'mighty_expire_after_days' => wc_clean( $_POST['expire_after_days'] ),
-            'mighty_enable_free_shipping' => $_POST['enable_free_shipping'] ?? false,
-            'mighty_only_send_to_verified_users' => $_POST['only_send_to_verified_users'] ?? false,
+            'mighty_enable_free_shipping' => '',
+            'mighty_only_send_to_verified_users' => '',
             'mighty_single_use_only' => $_POST['single_use_only'] ?? false,
             'mighty_club_with_offers' => $_POST['club_with_offers'] ?? false,
-            'mighty_exclude_sale_items' => $_POST['exclude_sale_items'] ?? false,
-            'mighty_minimum_spending_amount' => wc_format_decimal( $_POST['minimum_spending_amount'] ),
-            'mighty_maximum_spending_amount' => wc_format_decimal( $_POST['maximum_spending_amount'] ),
-            'mighty_included_products' => isset( $_POST['included_products'] ) ? implode( ',', $_POST['included_products'] ) : [],
-            'mighty_excluded_products' => isset( $_POST['excluded_products'] ) ? implode( ',', $_POST['excluded_products'] ) : [],
-            'mighty_included_categories' => isset( $_POST['included_categories'] ) ? implode( ',', $_POST['included_categories'] ) : [],
-            'mighty_excluded_categories' => isset( $_POST['excluded_categories'] ) ? implode( ',', $_POST['excluded_categories'] ) : []
+            'mighty_exclude_sale_items' => '',
+            'mighty_minimum_spending_amount' => '',
+            'mighty_maximum_spending_amount' => '',
+            'mighty_included_products' => [],
+            'mighty_excluded_products' => [],
+            'mighty_included_categories' => [],
+            'mighty_excluded_categories' => []
         ];
-
-        // when multiple reviews enable
-        if( $_POST['triggering_event'] == 'multiple_review' ) {
-            $discountData['mighty_number_of_reviews_required'] = wc_clean( $_POST['number_of_reviews_required'] );
-            $discountData['mighty_send_email_notif'] = $_POST['send_email_notif'] ?? false;
-            $discountData['mighty_reviews_required_for_notif'] = wc_clean( $_POST['reviews_required_for_notif'] );
-        }
 
         // when discount_type == percent
         if( $_POST['discount_type'] == 'percent' ) {

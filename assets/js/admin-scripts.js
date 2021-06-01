@@ -2,16 +2,6 @@
 
     // Initiating Select2
     $(document).ready(function() {
-        $('.mighty-select2').select2();
-
-        // When multiple review enable
-        $('select[name=triggering_event]').on( 'change', function() {
-            if( $(this).val() == 'multiple_review' ) {
-                $('.multiple-reviews').css( 'display', 'table-row' );
-            } else {
-                $('.multiple-reviews').css( 'display', 'none' );
-            }
-        });
 
         // When discount_type == percentage
         $('select[name=discount_type]').on( 'change', function() {
@@ -19,15 +9,6 @@
                 $('.max-discount').css( 'display', 'table-row' );
             } else {
                 $('.max-discount').css( 'display', 'none' );
-            }
-        });
-
-        // When send_email_notif enable
-        $('input[name=send_email_notif]').on( 'change', function() {
-            if( $(this).prop('checked') ) {
-                $('.reviews-required').css( 'display', 'table-row' );
-            } else {
-                $('.reviews-required').css( 'display', 'none' );
             }
         });
 

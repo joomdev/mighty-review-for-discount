@@ -8,7 +8,7 @@ class HelperFunctions {
 
     public static $default_basic_configuration = [
         'enable_rfd' => 1,
-        'trigger_discount' => 'approved',
+        'trigger_discount' => 'posted',
         'delete_expired_coupons' => 1,
         'single_review_email_type' => 'html',
         'single_review_email_subject' => "You've been awarded a coupon from {site_title}",
@@ -22,19 +22,7 @@ And for that we've awarded you a coupon:
 
 Thank you,
 {site_title}",
-        'multiple_review_email_type' => 'html',
-        'multiple_review_email_subject' => "You've been awarded a coupon from {site_title}",
-        'multiple_review_email_content' => 
-"Hi {customer_name},
-
-You've reviewed {total_reviews} products!
-And for that we've awarded you a coupon:
-
-{coupon_description}
-
-Thank you,
-{site_title}",
-        'reminder_email_type' => 'html',
+'reminder_email_type' => 'html',
         'reminder_email_subject' => 'Review reminder from {site_title}',
         'reminder_email_content' => 
 "Hi {customer_name},
@@ -44,21 +32,19 @@ Let us know your review to get a coupon.
 
 Thank you,
 {site_title}",
-
-        'close_target_email_type' => 'html',
-        'close_target_email_subject' => "You're just few reviews away from getting a coupon",
-        'close_target_email_content' => 
-"Hi {customer_name},
-
-You're just {reviews_left} reviews away from getting a coupon!
-
-Thank you,
-{site_title}",
+        'multiple_review_email_type' => '',
+        'multiple_review_email_subject' => "",
+        'multiple_review_email_content' => "",
+        'close_target_email_type' => '',
+        'close_target_email_subject' => "",
+        'close_target_email_content' => "",
 
     ];
 
     public static function get_configuration_option( $option ) {
+
         return get_option( 'mighty_rfd_basic_configuration' )[$option] ?? '';
+        
     }
 
     public static function get_basic_configuration() {

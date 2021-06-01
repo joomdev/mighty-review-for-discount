@@ -13,8 +13,6 @@
 
 namespace Mighty_RFD;
 
-use MightyRFD\Classes\MRFD_Plugin_Updater;
-
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 define( 'MIGHTY_RFD_VERSION', '1.0.0' );
@@ -71,9 +69,6 @@ final class Mighty_RFD {
 		add_action( 'plugins_loaded', [ $this, 'init' ] );
 
 		add_action( 'admin_init', [ $this, 'show_user_what_we_got' ] );
-
-		// Updater Hook
-		add_action( 'admin_init', [ $this, 'mrfd_plg_updater' ] );
 	}
 
 	/**
@@ -152,10 +147,6 @@ final class Mighty_RFD {
 		// Say hello to my little friend - Helper
 		require_once ( MIGHTY_RFD_DIR_PATH . 'classes/class-helper-functions.php' );
 
-		// Licence Controller
-		require_once ( MIGHTY_RFD_DIR_PATH . 'classes/class-mrfd-plugin-updater.php' );
-		require_once ( MIGHTY_RFD_DIR_PATH . 'classes/class-licence-controller.php' );
-
         // From the depths, a magical window has opened including our plugin!
 		require_once ( MIGHTY_RFD_DIR_PATH . 'classes/mighty-woocommerce.php' );
 		
@@ -233,35 +224,6 @@ final class Mighty_RFD {
 		);
 
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
-	}
-
-	/**
-	 * Plugin Updater
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function mrfd_plg_updater() {
-		
-		if( ! class_exists( 'MRFD_Plugin_Updater' ) ) {
-
-            // retrieve our licence key from the DB
-            $licence_key = get_option( 'mighty_rfd_licence_key' );
-            $licence = empty( $licence_key ) ? '' : trim( $licence_key );
-        
-            // setup the updater
-            $edd_updater = new MRFD_Plugin_Updater( MRFD_STORE_URL, __FILE__,
-                array(
-                    'version'   => MIGHTY_RFD_VERSION,
-                    'license'   => $licence,
-                    'item_id'   => MRFD_ITEM_ID,
-                    'author'    => 'MightyThemes',
-                    'beta'      => false,
-                )
-            );
-            
-        }
-
 	}
 }
 

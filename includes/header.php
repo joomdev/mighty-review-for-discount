@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
 }
 ?>
 
-<div class="title-box" >
+<div class="title-box">
 
     <div class="mighty-brand">
 
@@ -33,6 +33,6 @@ if (!defined('ABSPATH')) {
     </li>
 
     <li class="nav-item">
-        <a class="nav-link<?php echo isset( $_GET['page'] ) && $_GET['page'] == 'mighty-rfd-go-pro' ? ' active' : ''; ?>" href="<?php echo admin_url('admin.php?page=mighty-rfd-go-pro'); ?>">License</a>
+        <a class="nav-link<?php echo isset( $_GET['page'] ) && $_GET['page'] == 'mighty-rfd-go-pro' ? ' active' : ''; ?>" href="<?php echo admin_url('admin.php?page=mighty-rfd-go-pro'); ?>">Go Pro 🚀</a>
     </li>
 </ul>

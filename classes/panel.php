@@ -8,7 +8,6 @@
 namespace MightyRFD\Classes;
 
 use \MightyRFD\Classes\HelperFunctions;
-use \MightyRFD\Classes\LicenceController;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -67,8 +66,8 @@ if ( ! class_exists( 'DashboardPanel' ) ) {
 
             add_submenu_page(
                 self::PAGE_ID,
-                __( 'Activate License', 'mighty-rfd' ),
-                __( 'License', 'mighty-rfd' ),
+                __( 'Go Pro', 'mighty-rfd' ),
+                __( 'Go Pro', 'mighty-rfd' ),
                 'manage_options',
                 'mighty-rfd-go-pro',
                 [ __CLASS__, 'generate_mighty_rfd_go_pro' ]
@@ -97,22 +96,6 @@ if ( ! class_exists( 'DashboardPanel' ) ) {
                 MIGHTY_RFD_PLG_URL . 'assets/css/admin-styles.css',
                 null,
                 MIGHTY_RFD_VERSION
-            );
-
-            // Select2
-            wp_enqueue_style(
-                'mighty-select2',
-                MIGHTY_RFD_PLG_URL . 'assets/css/select2.min.css',
-                null,
-                MIGHTY_RFD_VERSION
-            );
-
-            wp_enqueue_script(
-                'mighty-select2',
-                MIGHTY_RFD_PLG_URL . 'assets/js/select2.min.js',
-                [ 'jquery' ],
-                MIGHTY_RFD_VERSION,
-                true // in footer?
             );
 
             // Admin Level Script
@@ -163,15 +146,15 @@ if ( ! class_exists( 'DashboardPanel' ) ) {
                     'single_review_email_type' => wc_clean( $_POST['single_review_email_type'] ),
                     'single_review_email_subject' => str_replace('\\', '', $_POST['single_review_email_subject'] ),
                     'single_review_email_content' => str_replace('\\', '', $_POST['single_review_email_content'] ),
-                    'multiple_review_email_type' => wc_clean( $_POST['multiple_review_email_type'] ),
-                    'multiple_review_email_subject' => str_replace('\\', '', $_POST['multiple_review_email_subject'] ),
-                    'multiple_review_email_content' => str_replace('\\', '', $_POST['multiple_review_email_content'] ),
+                    'multiple_review_email_type' => '',
+                    'multiple_review_email_subject' => '',
+                    'multiple_review_email_content' => '',
                     'reminder_email_type' => $_POST['reminder_email_type'],
                     'reminder_email_subject' => str_replace('\\', '', $_POST['reminder_email_subject'] ),
                     'reminder_email_content' => str_replace('\\', '', $_POST['reminder_email_content'] ),
-                    'close_target_email_type' => wc_clean( $_POST['close_target_email_type'] ),
-                    'close_target_email_subject' => str_replace('\\', '', $_POST['close_target_email_subject'] ),
-                    'close_target_email_content' => str_replace('\\', '', $_POST['close_target_email_content'] )
+                    'close_target_email_type' => '',
+                    'close_target_email_subject' => '',
+                    'close_target_email_content' => ''
                 ];
                 
                 update_option( 'mighty_rfd_basic_configuration', $basicConfig );
@@ -194,57 +177,8 @@ if ( ! class_exists( 'DashboardPanel' ) ) {
         }
 
         public static function generate_mighty_rfd_go_pro() {
-
-            // Activating licence & Saving data after submission
-            if( isset( $_POST['mighty-go-pro'] ) ) {
-
-                // run a quick security check
-                if( ! check_admin_referer( 'mighty_rfd_nonce', 'mighty_rfd_nonce' ) )
-                    return;
-
-                $licenceKey = trim( $_POST['mrfd-licence-key'] );
-
-                $response = LicenceController::activateLicence( $licenceKey );
-
-                if ( $response['status'] === true ) {
-
-                    update_option( 'mighty_rfd_licence_key', $licenceKey );
-                    update_option( 'mighty_rfd_licence_status', true );
-                    update_option( 'mighty_rfd_key_message', $response['message'] );
-                } else {
-                    // Error response
-                    update_option( 'mighty_rfd_licence_key', $licenceKey );
-                    update_option( 'mighty_rfd_licence_status', false );
-                    update_option( 'mighty_rfd_key_message', $response['message'] );
-                }
-            }
-
-            // Deactivating Licence
-            if( isset( $_POST['mighty-deactivate-licence'] ) ) {
-                // run a quick security check
-                if( ! check_admin_referer( 'mighty_rfd_nonce', 'mighty_rfd_nonce' ) )
-                    return;
-
-                $licenceKey = trim( $_POST['mrfd-licence-key'] );
-
-                $response = LicenceController::deactivateLicence( $licenceKey );
-
-                if ( $response === true ) {
-
-                    update_option( 'mighty_rfd_licence_key', $licenceKey );
-                    update_option( 'mighty_rfd_licence_status', false );
-                    update_option( 'mighty_rfd_key_message', 'To receive updates, please enter your valid Review For Discount license key.' );
-
-                }
-            }
-
-            $licenceData = [
-                'licence' => get_option( 'mighty_rfd_licence_key' ),
-                'status' => get_option( 'mighty_rfd_licence_status' ),
-                'licenceMsg' => get_option( 'mighty_rfd_key_message' ),
-            ];
             
-            self::load_html( 'go-pro', $licenceData );
+            self::load_html( 'go-pro' );
             
         }
 
@@ -281,11 +215,8 @@ Expires on: " . $datetime->format('d M, Y');
                 'customer_email' => $email
             ];
 
-            if( $triggerEvent == 'single_review' || ( $triggerEvent == 'multiple_review' || $triggerEvent == 'close_target' ) ) {
+            if( $triggerEvent == 'single_review' ) {
                 $emailDetails['tags']['coupon_description'] = $couponDescription;
-                if( $triggerEvent == 'multiple_review' ) {
-                    $emailDetails['tags']['total_reviews'] = '5';
-                }
             }
 
             if( $triggerEvent == 'single_review' || $triggerEvent == 'multiple_review' || $triggerEvent == 'reminder' ) {

@@ -29,14 +29,8 @@ class Mighty_Woocommerce {
 		// Including Admin Widget and update options
 		$this->create_mighty_dashboard_panel();
 
-		// if( ! current_user_can('administrator') && HelperFunctions::get_configuration_option( 'enable_rfd' ) ) {
-		if( true ) {
-			// Hook after review submission/approve
-			if ( HelperFunctions::get_configuration_option( 'trigger_discount' ) == 'posted' ) {
-				add_action( 'comment_post', [ $this, 'after_review_posted' ], 10, 2 ); // after review posted
-			} else {
-				add_action( 'transition_comment_status', [ $this, 'after_review_approved' ], 10, 3); // after review approved
-			}
+		if( ! current_user_can('administrator') && HelperFunctions::get_configuration_option( 'enable_rfd' ) ) {
+			add_action( 'comment_post', [ $this, 'after_review_posted' ], 10, 2 );
 		}
 
 		// Adding coupon class
@@ -107,24 +101,6 @@ class Mighty_Woocommerce {
 		
 	}
 
-	/**
-	 * After Comment/Review Approveds.
-	 */
-	public function after_review_approved( $new_status, $old_status, $commentObj ) {
-
-		if( $commentObj->comment_type == 'review'  ) {
-
-			if( $old_status != $new_status ) {
-
-				if( $new_status == 'approved' ) {
-
-					$this->validate_review_for_discount( $commentObj );
-	
-				}
-			}		
-		}
-	}
-
 	public function validate_review_for_discount( $commentObj ) {
 
 		# Getting mighty-discount Published posts
@@ -140,25 +116,10 @@ class Mighty_Woocommerce {
 			$discountId = get_the_ID();
 
 			$triggerEvent = get_post_meta( $discountId, 'mighty_triggering_event', true );
-			$verifiedPurchaseEnable = get_post_meta( $discountId, 'mighty_only_send_to_verified_users', true );
-			
-			// Checking for verified purchase
-			if( $verifiedPurchaseEnable ) {
-				if ( wc_customer_bought_product( $commentObj->comment_author_email, $commentObj->user_id, $commentObj->comment_post_ID ) ) {
-					// Let it go...
-				} else {
-					return;
-				}
-			}
 
 			// For single review
 			if( $triggerEvent == 'single_review' ) {
 				$this->single_event_trigger( $commentObj, $discountId, $triggerEvent );
-			}
-			
-			// For multiple review
-			if( $triggerEvent == 'multiple_review' ) {
-				$this->multiple_event_trigger( $commentObj, $discountId, $triggerEvent );
 			}
 
 		}
@@ -189,48 +150,6 @@ class Mighty_Woocommerce {
 
 	}
 
-	public function multiple_event_trigger( $commentObj, $discountId, $triggerEvent ) {
-
-		$reviewsRequired = get_post_meta( $discountId, 'mighty_number_of_reviews_required', true );
-		$sendEmailNotif = get_post_meta( $discountId, 'mighty_send_email_notif', true );
-		$reviewsRequiredForNotif = get_post_meta( $discountId, 'mighty_reviews_required_for_notif', true );
-
-		// WP_Comment_Query arguments
-		$args = [
-			// 'status' => 'approve', // TODO: to get approved comments
-			'type' => 'review',
-			'author_email' => $commentObj->comment_author_email,
-		];
-
-		// The Comment Query
-		$commentQuery = new \WP_Comment_Query( $args );
-
-		if ( empty( $commentQuery ) ) {
-			return;
-		}
-
-		$allComments = $commentQuery->comments;
-		$uniqueCommentsCount = count( array_unique( array_column( $allComments, 'comment_post_ID' ) ) );
-
-		// Send coupon if multiple reviews received
-		if( $uniqueCommentsCount == $reviewsRequired ) {
-
-			$couponObj = $this->create_coupon( $discountId, $commentObj );
-
-			$this->send_email( $couponObj, $commentObj, $triggerEvent );
-
-		} else if( $sendEmailNotif && $uniqueCommentsCount == $reviewsRequiredForNotif ) {
-			// sending mail after reaching certain threshold
-			$couponObj = $this->create_coupon( $discountId, $commentObj );
-
-			$this->send_email( $couponObj, $commentObj, 'close_target' );
-
-			// Deleting after sending threshold mail
-			$couponObj->delete();
-
-		}
-	}
-
 	public function create_coupon( $discountId, $commentObj ) {
 
 		// Getting Discount Meta
@@ -255,22 +174,9 @@ class Mighty_Woocommerce {
 		$wc_coupon->set_individual_use( $discountMeta['mighty_single_use_only'] );
 		$wc_coupon->set_usage_limit( 1 );
 		$wc_coupon->set_usage_limit_per_user( 1 );
-		$wc_coupon->set_exclude_sale_items( $discountMeta['mighty_exclude_sale_items'] );
 		$wc_coupon->set_date_expires( strtotime( '+' . $discountMeta['mighty_expire_after_days'] .' day' ) );
-		$wc_coupon->set_free_shipping( $discountMeta['mighty_enable_free_shipping'] );
-		$wc_coupon->set_product_ids( explode( ',', $discountMeta['mighty_included_products'] ) );
-		$wc_coupon->set_excluded_product_ids( explode( ',', $discountMeta['mighty_excluded_products'] ) );
-		$wc_coupon->set_product_categories( explode( ',', $discountMeta['mighty_included_categories'] ) );
-		$wc_coupon->set_excluded_product_categories( explode( ',', $discountMeta['mighty_excluded_categories'] ) );
-		$wc_coupon->set_minimum_amount( $discountMeta['mighty_minimum_spending_amount'] );
-		$wc_coupon->set_maximum_amount( $discountMeta['mighty_maximum_spending_amount'] );
 		$wc_coupon->set_email_restrictions( $userDetails->user_email );
 		$wc_coupon->update_meta_data( 'coupon_created_by', 'mighty-rfd' );
-		if( $discountMeta['mighty_triggering_event'] == 'multiple_review' ) {
-			$wc_coupon->update_meta_data( 'number_of_reviews_required', $discountMeta['mighty_number_of_reviews_required'] );
-			$wc_coupon->update_meta_data( 'send_email_notif', $discountMeta['mighty_send_email_notif'] );
-			$wc_coupon->update_meta_data( 'reviews_required_for_notif', $discountMeta['mighty_reviews_required_for_notif'] );
-		}
 
 		// Save the coupon
 		$wc_coupon->save();
@@ -295,20 +201,13 @@ class Mighty_Woocommerce {
 			'customer_email' => $commentObj->comment_author_email
 		];
 
-		if( $triggerEvent == 'single_review' || ( $triggerEvent == 'multiple_review' || $triggerEvent == 'close_target' ) ) {
+		if( $triggerEvent == 'single_review' ) {
 			$emailDetails['tags']['coupon_description'] = $this->get_coupon_description( $couponObj );
-			if( $triggerEvent == 'multiple_review' ) {
-				$emailDetails['tags']['total_reviews'] = $couponObj->get_meta( 'number_of_reviews_required' );
-			}
 		}
 
 		if( $triggerEvent == 'single_review' || $triggerEvent == 'multiple_review' || $triggerEvent == 'reminder' ) {
 			$product = wc_get_product( $commentObj->comment_post_ID );
 			$emailDetails['tags']['product_name'] = "<a href='" . get_permalink( $commentObj->comment_post_ID ) . "'>" . $product->get_name() . "</a>";
-		}
-
-		if( $triggerEvent == 'close_target' && $couponObj->get_meta( 'send_email_notif' ) ) {
-			$emailDetails['tags']['reviews_left'] = $couponObj->get_meta( 'number_of_reviews_required' ) - $couponObj->get_meta( 'reviews_required_for_notif' );
 		}
 
 		// Send the email
@@ -364,10 +263,6 @@ class Mighty_Woocommerce {
 
 			if( $couponObj->get_individual_use() ) {
 				$conditions .= "<li>This coupon can't be used with another coupon.</li>";
-			}
-
-			if( $couponObj->get_exclude_sale_items() ) {
-				$conditions .= "<li>This coupon can't be used on items on sale.</li>";
 			}
 
 			$conditions .= "</ul>";
