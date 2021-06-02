@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 
         <div class="brand">
             <img class="logo" src="<?php echo MIGHTY_RFD_PLG_URL . 'assets/images/mighty-rfd-logo.png'; ?>" alt="Mighty Review For Discount logo">
-            <span class="mighty-product-name">Mighty Review For Discount</span>
+            <span class="mighty-product-name">Mighty Review For Discount | v<?php echo MIGHTY_RFD_VERSION; ?></span>
         </div>
 
         <a href="https://mightythemes.com" target="_BLANK" class="mighty-more-themes-plugins-button"><span class="dashicons dashicons-cart"></span> More WP Themes &amp; Plugins</a>
@@ -35,4 +35,10 @@ if (!defined('ABSPATH')) {
     <li class="nav-item">
         <a class="nav-link<?php echo isset( $_GET['page'] ) && $_GET['page'] == 'mighty-rfd-go-pro' ? ' active' : ''; ?>" href="<?php echo admin_url('admin.php?page=mighty-rfd-go-pro'); ?>">Go Pro 🚀</a>
     </li>
+
+    <div class="docs-link">
+        <a href="#"><span class="dashicons dashicons-media-document"></span> Documentation</a>
+        <a href="#"><span class="dashicons dashicons-editor-help"></span> Help</a>
+    </div>
 </ul>
+
