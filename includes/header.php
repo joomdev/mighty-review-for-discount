@@ -37,8 +37,8 @@ if (!defined('ABSPATH')) {
     </li>
 
     <div class="docs-link">
-        <a href="#"><span class="dashicons dashicons-media-document"></span> Documentation</a>
-        <a href="#"><span class="dashicons dashicons-editor-help"></span> Help</a>
+        <a target="_blank" href="#"><span class="dashicons dashicons-media-document"></span> Documentation</a>
+        <a target="_blank" href="#"><span class="dashicons dashicons-editor-help"></span> Help</a>
     </div>
 </ul>
 
