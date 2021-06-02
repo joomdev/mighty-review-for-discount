@@ -83,6 +83,9 @@ class Mighty_Woocommerce {
 
 		array_unshift( $links, $settings_link );
 
+		// TODO: add link
+		$links['go_pro'] = sprintf( '<a style="color: #142D75; font-weight: bold;" href="%1$s" target="_blank">%2$s</a>', '#', __( 'Go Pro', 'mighty-rfd' ) );
+
 		return $links;
 	}
 
