@@ -2,7 +2,7 @@
     margin-top: 13px;
     background: white;
     padding: 6px 17px;
-    border-top: 5px solid #5A00F0;
+    border-top: 5px solid #142D75;
 }
 
 .mt-rfd-block {
@@ -56,8 +56,7 @@
 
 .mighty-brand .logo {
     vertical-align: middle;
-    height: 60px;
-    width: 60px;
+    width: 70px;
 }
 
 /* Tabs */
@@ -75,7 +74,7 @@
     color: #495057;
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff;
-    box-shadow: 0 5px #5A00F0;
+    box-shadow: 0 5px #142D75;
 }
 .nav-tabs .nav-link {
     margin-bottom: -1px;
@@ -160,7 +159,7 @@
 }
 
 .mighty-go-pro-page .upgrade-btn {
-    background-color: #5A00F0;
+    background-color: #142D75;
     transition: all 0.5s ease;
     border-radius: 5px;
     color: #fff;
@@ -170,23 +169,43 @@
     letter-spacing: 0.05em;
     display: inline-block;
     text-decoration: none;
+    margin-bottom: 16px;
 }
 
 .mighty-go-pro-page .upgrade-btn:hover {
-    background: #6000ff;
+    background: #6273A3;
     color: white;
 }
 
 .mighty-go-pro-page .basic-desc {
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .mighty-go-pro-page .sub-desc {
     font-size: 14px;
+    margin-bottom: 16px;
 }
 
 .mighty-go-pro-page .dashicons {
     color: #1ED760;
+}
+
+.mighty-go-pro-page .pro-features {
+    margin: 0;
+}
+
+.mighty-go-pro-page .pro-illustration {
+    display: flex;
+    align-items: flex-end;
+}
+
+.mighty-go-pro-page .pro-illustration img {
+    width: 48rem;
+}
+
+.mighty-go-pro-page .pro-details {
+    display: flex;
+    justify-content: space-evenly;
 }
