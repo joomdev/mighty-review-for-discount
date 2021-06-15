@@ -37,7 +37,7 @@ class Mighty_Woocommerce {
 		add_filter( 'woocommerce_email_classes', [ $this, 'add_mighty_woocommerce_coupon_email' ] );
 
 		// Purchase completion hook
-		add_action( 'woocommerce_order_status_processing', [ $this, 'woo_payment_complete' ] );
+		add_action( 'woocommerce_order_status_completed', [ $this, 'woo_payment_complete' ] );
 
 		// Expired Coupons Deletion
 		if( HelperFunctions::get_configuration_option( 'delete_expired_coupons' ) ) {
