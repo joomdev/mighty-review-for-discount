@@ -348,7 +348,6 @@ class Mighty_Woocommerce {
 		
 		$order = wc_get_order( $order_id );
 		$products = $order->get_items();
-		$userObj = $order->get_user();
 		$triggerEvent = 'reminder';
 		$mailer = WC()->mailer()->get_emails();
 		
@@ -357,26 +356,24 @@ class Mighty_Woocommerce {
 			$productList .= "<li><a href='" . get_permalink( $product->get_id() ) . "'>" . $product->get_name() . "</a></li>";
 		}
 		$productList .= '</ul>';
+		
+		// Sending Mail
+		$configuration = HelperFunctions::get_basic_configuration();
 
-		if( $userObj ) {
-			
-			$configuration = HelperFunctions::get_basic_configuration();
+		$emailDetails['email_subject'] = $configuration[ $triggerEvent . '_email_subject' ];
+		$emailDetails['email_body'] = $configuration[ $triggerEvent . '_email_content' ];
+		$emailDetails['email_type'] = $configuration[ $triggerEvent . '_email_type' ];
+		$emailDetails['email_address'] = $order->get_billing_email();
+		$emailDetails['tags'] = [
+			'site_title' => get_bloginfo( 'name' ),
+			'customer_name' => ucfirst( $order->get_billing_first_name() ),
+			'customer_email' => $order->get_billing_email()
+		];
+		
+		$emailDetails['tags']['product_name'] = $productList;
 
-			$emailDetails['email_subject'] = $configuration[ $triggerEvent . '_email_subject' ];
-			$emailDetails['email_body'] = $configuration[ $triggerEvent . '_email_content' ];
-			$emailDetails['email_type'] = $configuration[ $triggerEvent . '_email_type' ];
-			$emailDetails['email_address'] = $userObj->user_email;
-			$emailDetails['tags'] = [
-				'site_title' => get_bloginfo( 'name' ),
-				'customer_name' => ucfirst( $userObj->user_nicename ),
-				'customer_email' => $userObj->user_email
-			];
-			
-			$emailDetails['tags']['product_name'] = $productList;
-
-			// Send the email
-			return $mailer['MIGHTY_Coupon_Email']->trigger( $emailDetails );
-		}
+		// Send the email
+		return $mailer['MIGHTY_Coupon_Email']->trigger( $emailDetails );
 		
 	}
 
