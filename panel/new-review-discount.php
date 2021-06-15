@@ -154,7 +154,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
 
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="excluded_products">Exclude products [PRO]</label>
+                            <label for="excluded_products">Exclude Products [PRO]</label>
                         </th>
                         <td>
                             <select id="excluded_products" class="regular-text" name="excluded_products[]" disabled></select>
