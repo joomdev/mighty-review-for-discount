@@ -194,7 +194,7 @@ class Mighty_Discount
             'mighty_enable_free_shipping' => '',
             'mighty_only_send_to_verified_users' => '',
             'mighty_single_use_only' => $_POST['single_use_only'] ?? false,
-            'mighty_club_with_offers' => $_POST['club_with_offers'] ?? false,
+            'mighty_individual_use_only' => $_POST['individual_use_only'] ?? false,
             'mighty_exclude_sale_items' => '',
             'mighty_minimum_spending_amount' => '',
             'mighty_maximum_spending_amount' => '',

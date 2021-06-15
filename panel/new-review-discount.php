@@ -104,10 +104,10 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
 
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="club_with_offers">Club with other offers?</label>
+                            <label for="individual_use_only">Individual Use Only?</label>
                         </th>
                         <td>
-                            <input name="club_with_offers" id="club_with_offers" type="checkbox" value="1" <?php checked( 1, get_post_meta( $post->ID, 'mighty_club_with_offers', true ), true ); ?>>
+                            <input name="individual_use_only" id="individual_use_only" type="checkbox" value="1" <?php checked( 1, get_post_meta( $post->ID, 'mighty_individual_use_only', true ), true ); ?>>
                             <p class="description">Enable if the coupon cannot be used in conjunction with other coupons.</p>
                         </td>
                     </tr>

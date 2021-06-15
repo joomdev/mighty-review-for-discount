@@ -180,9 +180,9 @@ class Mighty_Woocommerce {
 		$wc_coupon->set_description( $discountMeta['mighty_coupon_description'] );
 		$wc_coupon->set_discount_type( $discountMeta['mighty_discount_type'] );
 		$wc_coupon->set_amount(  floatval( $discountMeta['mighty_coupon_amount'] ) );
-		$wc_coupon->set_individual_use( $discountMeta['mighty_single_use_only'] );
-		$wc_coupon->set_usage_limit( 1 );
-		$wc_coupon->set_usage_limit_per_user( 1 );
+		$wc_coupon->set_individual_use( $discountMeta['mighty_individual_use_only'] );
+		$wc_coupon->set_usage_limit( $discountMeta['mighty_single_use_only'] );
+		$wc_coupon->set_usage_limit_per_user( $discountMeta['mighty_single_use_only'] );
 		$wc_coupon->set_date_expires( strtotime( '+' . $discountMeta['mighty_expire_after_days'] .' day' ) );
 		$wc_coupon->set_email_restrictions( $userEmail );
 		$wc_coupon->update_meta_data( 'coupon_created_by', 'mighty-rfd' );
