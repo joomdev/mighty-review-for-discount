@@ -59,7 +59,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                             <label for="coupon_amount">Percentage</label>
                         </th>
                         <td>
-                            <input class="regular-text" name="coupon_amount" id="coupon_amount" type="text" value="<?php echo get_post_meta( $post->ID, 'mighty_coupon_amount', true ); ?>" >
+                            <input class="regular-text" name="coupon_amount" id="coupon_amount" type="number" value="<?php echo get_post_meta( $post->ID, 'mighty_coupon_amount', true ); ?>" >
                         </td>
                     </tr>
 
@@ -68,7 +68,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                             <label for="max_discount">Max Discount</label>
                         </th>
                         <td>
-                            <input class="regular-text" name="max_discount" id="max_discount" type="text" value="<?php echo get_post_meta( $post->ID, 'mighty_max_discount', true ); ?>" >
+                            <input class="regular-text" name="max_discount" id="max_discount" type="number" value="<?php echo get_post_meta( $post->ID, 'mighty_max_discount', true ); ?>" >
                         </td>
                     </tr>
 
@@ -77,7 +77,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                             <label for="expire_after_days">Expire After Days</label>
                         </th>
                         <td>
-                            <input class="regular-text" name="expire_after_days" id="expire_after_days" type="text" value="<?php echo get_post_meta( $post->ID, 'mighty_expire_after_days', true ); ?>" >
+                            <input class="regular-text" name="expire_after_days" id="expire_after_days" type="number" value="<?php echo get_post_meta( $post->ID, 'mighty_expire_after_days', true ); ?>" >
                         </td>
                     </tr>
 
