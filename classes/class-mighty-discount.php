@@ -29,6 +29,8 @@ class Mighty_Discount
 
         add_filter( 'manage_mighty-discount_posts_columns', [ $this, 'set_custom_columns' ] );
 
+        add_action( "manage_" . self::POST_TYPE . "_posts_custom_column", [ $this, 'add_column_data' ], 10, 2 );
+
         add_action( 'admin_notices', [ $this, 'add_header' ] );
 
         add_action( 'add_meta_boxes', [ $this, 'add_metabox' ] );
@@ -83,10 +85,32 @@ class Mighty_Discount
             'title' => esc_html__( 'Title', 'mighty-rfd' ),
             'description' => esc_html__( 'Description', 'mighty-rfd' ),
             'trigger' => esc_html__( 'Trigger', 'mighty-rfd' ),
+            'status' => esc_html__( 'Status', 'mighty-rfd' ),
             'date' => esc_html__( 'Date', 'mighty-rfd' ),
         ];
 
         return $columns;
+
+    }
+
+    public function add_column_data( $column, $post_id ) {
+
+        foreach ( get_post_meta( $post_id ) as $key => $value ) {
+			$discountMeta[$key] = $value[0];
+		}
+
+        switch( $column ) {
+
+            case 'description': echo $discountMeta['mighty_coupon_description'];
+            break;
+
+            case 'trigger': echo ucwords( str_replace("_", " ", $discountMeta['mighty_triggering_event'] ) );
+            break;
+
+            case 'status': echo ucfirst( get_post_status( $post_id ) );
+            break;
+
+        }
 
     }
 
