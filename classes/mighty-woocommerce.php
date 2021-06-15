@@ -328,15 +328,13 @@ class Mighty_Woocommerce {
 
 		}
 
-		$expiryDate = "<b>Expires on: </b>" . $couponObj->get_date_expires()->date_i18n( 'd M, Y' );
+		$expiryDate = empty( $couponObj->get_date_expires() ) ? '' : "<b>Expires on: </br>" . $couponObj->get_date_expires()->date_i18n( 'd M, Y' ) . "</b>";
 
 		// Details
 		$couponDescription = "<h2>Coupon code: " . $couponObj->get_code() . "</h2>
 		<i>" . $couponObj->get_description() . "</i>
 		<b>Discount Available: $couponDiscount</b>
-		$conditions
-		$restrictions
-		$expiryDate";
+		$conditions $restrictions $expiryDate";
 
 		return $couponDescription;
 	}
@@ -359,9 +357,9 @@ class Mighty_Woocommerce {
 			
 			$configuration = HelperFunctions::get_basic_configuration();
 
-			$emailDetails['email_subject'] = $configuration[$triggerEvent.'_email_subject'];
-			$emailDetails['email_body'] = $configuration[$triggerEvent.'_email_content'];
-			$emailDetails['email_type'] = $configuration[$triggerEvent.'_email_type'];
+			$emailDetails['email_subject'] = $configuration[ $triggerEvent . '_email_subject' ];
+			$emailDetails['email_body'] = $configuration[ $triggerEvent . '_email_content' ];
+			$emailDetails['email_type'] = $configuration[ $triggerEvent . '_email_type' ];
 			$emailDetails['email_address'] = $userObj->user_email;
 			$emailDetails['tags'] = [
 				'site_title' => get_bloginfo( 'name' ),
