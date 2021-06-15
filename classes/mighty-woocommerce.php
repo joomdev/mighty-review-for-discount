@@ -29,7 +29,7 @@ class Mighty_Woocommerce {
 		// Including Admin Widget and update options
 		$this->create_mighty_dashboard_panel();
 
-		if( ! current_user_can('administrator') && HelperFunctions::get_configuration_option( 'enable_rfd' ) ) {
+		if( HelperFunctions::get_configuration_option( 'enable_rfd' ) ) {
 			add_action( 'comment_post', [ $this, 'after_review_posted' ], 10, 2 );
 		}
 
@@ -95,6 +95,11 @@ class Mighty_Woocommerce {
 	public function after_review_posted( $comment_ID ) {
 		
 		$commentObj = get_comment( $comment_ID );
+
+		// User shouldn't be admin
+		if( user_can( $commentObj->user_id, 'administrator' ) ) {
+			return;
+		}
 
 		if( $commentObj->comment_type == 'review'  ) {
 
