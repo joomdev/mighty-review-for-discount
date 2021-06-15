@@ -84,6 +84,7 @@ class Mighty_Discount
             'cb' => '<input type="checkbox" />',
             'title' => esc_html__( 'Title', 'mighty-rfd' ),
             'description' => esc_html__( 'Description', 'mighty-rfd' ),
+            'coupon_type' => esc_html__( 'Coupon Type', 'mighty-rfd' ),
             'trigger' => esc_html__( 'Trigger', 'mighty-rfd' ),
             'status' => esc_html__( 'Status', 'mighty-rfd' ),
             'date' => esc_html__( 'Date', 'mighty-rfd' ),
@@ -102,6 +103,9 @@ class Mighty_Discount
         switch( $column ) {
 
             case 'description': echo $discountMeta['mighty_coupon_description'];
+            break;
+
+            case 'coupon_type' : echo ucwords( str_replace("_", " ", $discountMeta['mighty_discount_type'] ) );
             break;
 
             case 'trigger': echo ucwords( str_replace("_", " ", $discountMeta['mighty_triggering_event'] ) );
