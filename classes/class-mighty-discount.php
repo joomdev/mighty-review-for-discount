@@ -200,11 +200,6 @@ class Mighty_Discount
             'mighty_excluded_categories' => []
         ];
 
-        // when discount_type == percent
-        if( $_POST['discount_type'] == 'percent' ) {
-            $discountData['mighty_max_discount'] = wc_format_decimal( $_POST['max_discount'] );
-        }
-
         // updating data
         foreach( $discountData as $key => $value ) {
             update_post_meta( $post_id, $key, $value );

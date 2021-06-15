@@ -63,15 +63,6 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                         </td>
                     </tr>
 
-                    <tr class="max-discount" valign="top" style="display: <?php echo get_post_meta( $post->ID, 'mighty_discount_type', true ) == 'percent' ? 'table-row' : 'none' ?>">
-                        <th scope="row" class="titledesc">
-                            <label for="max_discount">Max Discount</label>
-                        </th>
-                        <td>
-                            <input class="regular-text" name="max_discount" id="max_discount" type="number" value="<?php echo get_post_meta( $post->ID, 'mighty_max_discount', true ); ?>" >
-                        </td>
-                    </tr>
-
                     <tr valign="top">
                         <th scope="row" class="titledesc">
                             <label for="expire_after_days">Expire After Days</label>

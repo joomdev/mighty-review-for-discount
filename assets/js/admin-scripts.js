@@ -2,16 +2,6 @@
 
     // Initiating Select2
     $(document).ready(function() {
-
-        // When discount_type == percentage
-        $('select[name=discount_type]').on( 'change', function() {
-            if( $(this).val() == 'percent' ) {
-                $('.max-discount').css( 'display', 'table-row' );
-            } else {
-                $('.max-discount').css( 'display', 'none' );
-            }
-        });
-
         // Test email
         $( '.button.test-email' ).on( 'click', function( e ) {
             e.preventDefault();
