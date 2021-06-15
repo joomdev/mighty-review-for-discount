@@ -162,6 +162,7 @@ class Mighty_Woocommerce {
 
 		$userDetails = get_userdata( $commentObj->user_id );
 		$userName = $userDetails ? $userDetails->display_name : $commentObj->comment_author;
+		$userEmail = $userDetails ? $userDetails->user_email : $commentObj->comment_author_email;
 		$date = new \DateTime();
 		$currentDate = $date->getTimestamp();
 		$couponCode = $userName . '-' . $currentDate;
@@ -178,7 +179,7 @@ class Mighty_Woocommerce {
 		$wc_coupon->set_usage_limit( 1 );
 		$wc_coupon->set_usage_limit_per_user( 1 );
 		$wc_coupon->set_date_expires( strtotime( '+' . $discountMeta['mighty_expire_after_days'] .' day' ) );
-		$wc_coupon->set_email_restrictions( $userDetails->user_email );
+		$wc_coupon->set_email_restrictions( $userEmail );
 		$wc_coupon->update_meta_data( 'coupon_created_by', 'mighty-rfd' );
 
 		// Save the coupon
@@ -269,8 +270,11 @@ class Mighty_Woocommerce {
 			}
 
 			$conditions .= "</ul>";
+		} else {
+			$conditions = '';
 		}
 
+		$restrictions = '';
 		// Products Allowed
 		if( ! empty( $couponObj->get_product_ids() ) || ! empty( $couponObj->get_product_categories() ) ) {
 
@@ -328,8 +332,8 @@ class Mighty_Woocommerce {
 
 		// Details
 		$couponDescription = "<h2>Coupon code: " . $couponObj->get_code() . "</h2>
-		<i>" . $couponObj->get_description() . "</i><br>
-		<b>Discount Available: $couponDiscount</b><br>
+		<i>" . $couponObj->get_description() . "</i>
+		<b>Discount Available: $couponDiscount</b>
 		$conditions
 		$restrictions
 		$expiryDate";
