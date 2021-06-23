@@ -100,7 +100,7 @@ final class Mighty_RFD {
 
 	public function show_user_what_we_got() {
 
-		if ( ! in_array( 'woocommerce/woocommerce.php', (array) get_option( 'active_plugins', array() ) ) ) {
+		if ( ! function_exists( 'WC' ) ) {
 			add_action( 'admin_notices', [ $this, 'admin_notice_missing_main_plugin' ] );
 			return;
 		} elseif ( get_option( 'activate_mighty_rfd', false ) ) {
@@ -127,7 +127,7 @@ final class Mighty_RFD {
 	public function init() {
 
 		// Check if WooCommerce installed and activated
-		if ( ! in_array( 'woocommerce/woocommerce.php', (array) get_option( 'active_plugins', array() ) ) ) {
+		if ( ! function_exists( 'WC' ) ) {
 			add_action( 'admin_notices', [ $this, 'admin_notice_missing_main_plugin' ] );
 			return;
 		}
