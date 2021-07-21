@@ -78,7 +78,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                         </th>
                         <td>
                             <input name="enable_free_shipping" id="enable_free_shipping" type="checkbox" disabled>
-                            <p class="description">Enable this if the coupon grants free shipping. The free shipping method must be enabled and be set to require <b>a valid free shipping coupon</b>. See the <b>Free Shipping Requires</b> setting.</p>
+                            <p class="description">Enable this if the coupon grants free shipping. The free shipping method must be enabled and be set to require <b>a valid free shipping coupon</b>. See the <b><a target="_blank" href="<?php echo admin_url( 'admin.php?page=wc-settings&tab=shipping' ); ?>">Free Shipping Requires</a></b> setting.</p>
                         </td>
                     </tr>
                     
