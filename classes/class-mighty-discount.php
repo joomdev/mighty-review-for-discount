@@ -102,13 +102,13 @@ class Mighty_Discount
 
         switch( $column ) {
 
-            case 'description': echo $discountMeta['mighty_coupon_description'];
+            case 'description': echo isset( $discountMeta['mighty_coupon_description'] ) ? $discountMeta['mighty_coupon_description'] : '';
             break;
 
-            case 'coupon_type' : echo ucwords( str_replace("_", " ", $discountMeta['mighty_discount_type'] ) );
+            case 'coupon_type' : echo isset( $discountMeta['mighty_discount_type'] ) ? ucwords( str_replace("_", " ", $discountMeta['mighty_discount_type'] ) ) : '';
             break;
 
-            case 'trigger': echo ucwords( str_replace("_", " ", $discountMeta['mighty_triggering_event'] ) );
+            case 'trigger': echo isset( $discountMeta['mighty_triggering_event'] ) ? ucwords( str_replace("_", " ", $discountMeta['mighty_triggering_event'] ) ) : '';
             break;
 
             case 'status': echo ucfirst( get_post_status( $post_id ) );
