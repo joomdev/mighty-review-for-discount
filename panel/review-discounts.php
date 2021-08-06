@@ -1,6 +1,6 @@
 <?php
 /**
- * Mighty Review For Discount
+ * Mighty WooCommerce Review For Discount
  * Review Discount Page
  */
     

@@ -2,7 +2,7 @@
 /**
  * Dashboard
  *
- * Package: Mighty Review For Discount
+ * Package: Mighty WooCommerce Review For Discount
  * @since 1.0.0
  */
 namespace MightyRFD\Classes;

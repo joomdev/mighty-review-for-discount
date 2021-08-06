@@ -1,6 +1,6 @@
 <?php
 /**
- * Mighty Review For Discount
+ * Mighty WooCommerce Review For Discount
  * HomePage
  */
     
@@ -19,7 +19,7 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
                 <tbody>
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="enable_rfd">Enable Mighty Review For Discounts</label>
+                            <label for="enable_rfd">Enable Mighty WooCommerce Review For Discounts</label>
                         </th>
                         <td>
                             <input name="enable_rfd" id="enable_rfd" type="checkbox" value="1" <?php checked( 1, $data['enable_rfd'], true ); ?>>
@@ -33,7 +33,7 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
                         <td>
                             <select name="trigger_discount" id="trigger_discount">
                                 <option value="posted" <?php selected( $data['trigger_discount'], 'posted' ); ?>>When review posted</option>
-                                <option value="" disabled>When review approved [PRO]</option>
+                                <option value="" disabled>When review approved <span class="pro-tag">[PRO]</span></option>
                             </select>
                             <p class="description">Choose when coupon will be sent to the users</p>
                         </td>
@@ -45,7 +45,7 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
                         </th>
                         <td>
                             <input name="delete_expired_coupons" id="delete_expired_coupons" type="checkbox" value="1" <?php checked( 1, $data['delete_expired_coupons'], true ); ?>> 
-                            <p class="description">Created by Mighty Review for Discount</p>
+                            <p class="description">Created by Mighty WooCommerce Review For Discount</p>
                             <p><button class="button delete-expired-coupons">Delete expired coupons</button></p>
                         </td>
                     </tr>
@@ -160,20 +160,18 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
         </div>
 
         <div class="mt-rfd-block">
-            <h2 class="block-heading">Email Settings for the Multiple Reviews [PRO]</h2>
+            <h2 class="block-heading">Email Settings for the Multiple Reviews <span class="pro-tag">[PRO]</span></h2>
 
             <table class="form-table">
-                <!-- TODO: update link -->
-                <p>Available in Pro. <a href="#">Upgrade today</a>.</p>
+                <p>Available in Pro. <a target="_blank" href="https://mightythemes.com/product/mighty-review-for-discount">Upgrade today</a>.</p>
             </table>
         </div>
 
         <div class="mt-rfd-block">
-            <h2 class="block-heading">Email Settings for Customer Close to the Target [PRO]</h2>
+            <h2 class="block-heading">Email Settings for Customer Close to the Target <span class="pro-tag">[PRO]</span></h2>
 
             <table class="form-table">
-                <!-- TODO: update link -->
-                <p>Available in Pro. <a href="#">Upgrade today</a>.</p>
+                <p>Available in Pro. <a target="_blank" href="https://mightythemes.com/product/mighty-review-for-discount">Upgrade today</a>.</p>
             </table>
         </div>
         

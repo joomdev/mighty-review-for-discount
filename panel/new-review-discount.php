@@ -1,6 +1,6 @@
 <?php
 /**
- * Mighty Review For Discount
+ * Mighty WooCommerce Review For Discount
  * New Review Discount Page
  */
     
@@ -35,7 +35,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                         <td>
                             <select name="triggering_event" id="triggering_event">
                                 <option value="single_review" <?php selected( get_post_meta( $post->ID, 'mighty_triggering_event', true ), 'single_review' ); ?>>Single Review</option>
-                                <option value="" disabled>Multiple Reviews [PRO]</option>
+                                <option value="" disabled>Multiple Reviews <span class="pro-tag">[PRO]</span></option>
                             </select>
                             <p class="description">Choose when coupon will be sent to the users</p>
                         </td>
@@ -48,8 +48,8 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                         <td>
                             <select name="discount_type" id="discount_type">
                                 <option value="percent" <?php selected( get_post_meta( $post->ID, 'mighty_discount_type', true ), 'percent' ); ?>>Percentage</option>
-                                <option value="" disabled>Fixed Cart Amount [PRO]</option>
-                                <option value="" disabled>Fixed Product Amount [PRO]</option>
+                                <option value="" disabled>Fixed Cart Amount <span class="pro-tag">[PRO]</span></option>
+                                <option value="" disabled>Fixed Product Amount <span class="pro-tag">[PRO]</span></option>
                             </select>
                         </td>
                     </tr>
@@ -74,7 +74,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
 
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="enable_free_shipping">Enable Free Shipping [PRO]</label>
+                            <label for="enable_free_shipping">Enable Free Shipping <span class="pro-tag">[PRO]</span></label>
                         </th>
                         <td>
                             <input name="enable_free_shipping" id="enable_free_shipping" type="checkbox" disabled>
@@ -84,7 +84,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                     
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="only_send_to_verified_users">Only Send to Verified Users [PRO]</label>
+                            <label for="only_send_to_verified_users">Only Send to Verified Users <span class="pro-tag">[PRO]</span></label>
                         </th>
                         <td>
                             <input name="only_send_to_verified_users" id="only_send_to_verified_users" type="checkbox" disabled>
@@ -114,7 +114,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
 
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="exclude_sale_items">Exclude sale items [PRO]</label>
+                            <label for="exclude_sale_items">Exclude sale items <span class="pro-tag">[PRO]</span></label>
                         </th>
                         <td>
                             <input name="exclude_sale_items" id="exclude_sale_items" type="checkbox" disabled>
@@ -124,7 +124,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
 
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="minimum_spending_amount">Minimum amount to spend [PRO]</label>
+                            <label for="minimum_spending_amount">Minimum amount to spend <span class="pro-tag">[PRO]</span></label>
                         </th>
                         <td>
                             <input class="regular-text" name="minimum_spending_amount" id="minimum_spending_amount" type="number" disabled>
@@ -134,7 +134,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
 
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="maximum_spending_amount">Maximum amount to spend [PRO]</label>
+                            <label for="maximum_spending_amount">Maximum amount to spend <span class="pro-tag">[PRO]</span></label>
                         </th>
                         <td>
                             <input class="regular-text" name="maximum_spending_amount" id="maximum_spending_amount" type="number" disabled>
@@ -144,7 +144,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
 
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="included_products">Products [PRO]</label>
+                            <label for="included_products">Products <span class="pro-tag">[PRO]</span></label>
                         </th>
                         <td>
                             <select id="included_products" class="regular-text" name="included_products[]" disabled></select>
@@ -154,7 +154,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
 
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="excluded_products">Exclude Products [PRO]</label>
+                            <label for="excluded_products">Exclude Products <span class="pro-tag">[PRO]</span></label>
                         </th>
                         <td>
                             <select id="excluded_products" class="regular-text" name="excluded_products[]" disabled></select>
@@ -164,7 +164,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
 
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="included_categories">Product Categories [PRO]</label>
+                            <label for="included_categories">Product Categories <span class="pro-tag">[PRO]</span></label>
                         </th>
                         <td>
                             <select id="included_categories" class="regular-text" name="included_categories[]" disabled></select>
@@ -174,7 +174,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
 
                     <tr valign="top">
                         <th scope="row" class="titledesc">
-                            <label for="excluded_categories">Exclude Categories [PRO]</label>
+                            <label for="excluded_categories">Exclude Categories <span class="pro-tag">[PRO]</span></label>
                         </th>
                         <td>
                             <select id="excluded_categories" class="regular-text" name="excluded_categories[]" disabled></select>

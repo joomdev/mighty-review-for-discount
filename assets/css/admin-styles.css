@@ -227,3 +227,7 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.pro-tag {
+    color: tomato;
+}

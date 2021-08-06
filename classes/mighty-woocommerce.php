@@ -65,7 +65,7 @@ class Mighty_Woocommerce {
 		
 		if( $currentScreen->id === "plugins" && MIGHTY_RFD_PLG_BASENAME == $file ) {
 
-			$links[] = '<a target="_blank" href="#">' . esc_html__( 'Documentation', 'mighty-rfd' ) . '</a>';
+			$links[] = '<a target="_blank" href="https://mightythemes.com/docs/docs-category/mighty-rfd">' . esc_html__( 'Documentation', 'mighty-rfd' ) . '</a>';
 			$links[] = '<a target="_blank" href="https://www.youtube.com/channel/UC6TOMaD5I2YTmf4mzHV5Yig">' . __( 'Video Tutorials', 'mighty-rfd' ) . '</a>';
 
 		}
@@ -82,9 +82,8 @@ class Mighty_Woocommerce {
 		$settings_link = sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'admin.php?page=mighty-rfd-basic_configuration' ), __( 'Settings', 'mighty-rfd' ) );
 
 		array_unshift( $links, $settings_link );
-
-		// TODO: add link
-		$links['go_pro'] = sprintf( '<a style="color: #142D75; font-weight: bold;" href="%1$s" target="_blank">%2$s</a>', '#', __( 'Go Pro', 'mighty-rfd' ) );
+		
+		$links['go_pro'] = sprintf( '<a style="color: #142D75; font-weight: bold;" href="%1$s" target="_blank">%2$s</a>', 'https://mightythemes.com/product/mighty-review-for-discount', __( 'Go Pro', 'mighty-rfd' ) );
 
 		return $links;
 	}

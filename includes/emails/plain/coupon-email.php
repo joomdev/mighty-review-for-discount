@@ -1,6 +1,6 @@
 <?php
 /**
- * Mighty Review For Discount Plain Email
+ * Mighty WooCommerce Review For Discount Plain Email
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

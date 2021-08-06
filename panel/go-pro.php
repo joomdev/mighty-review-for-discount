@@ -1,6 +1,6 @@
 <?php
 /**
- * Mighty Review For Discount
+ * Mighty WooCommerce Review For Discount
  * Licence Page
  */
     
@@ -21,12 +21,12 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
             <p class="basic-desc">Need more features?</strong></p>
             <p class="sub-desc">Updgrade now for more cool and other advanced features.</p>
             
-            <a href="#" target="_blank" class="upgrade-btn" role="button">Go Pro 🚀</a>
+            <a href="https://mightythemes.com/product/mighty-review-for-discount" target="_blank" class="upgrade-btn" role="button">Go Pro 🚀</a>
 
             <ul class="pro-features">
-                <li><span class="dashicons dashicons-saved"></span> Lorem ipsum dolor site amet..</li>
-                <li><span class="dashicons dashicons-saved"></span> Lorem ipsum dolor site amet..</li>
-                <li><span class="dashicons dashicons-saved"></span> Lorem ipsum dolor site amet..</li>
+                <li><span class="dashicons dashicons-saved"></span> Multiple discount trigger points</li>
+                <li><span class="dashicons dashicons-saved"></span> Multiple discount types</li>
+                <li><span class="dashicons dashicons-saved"></span> Send only to verified users, and more</li>
             </ul>
         </div>
         <div class="pro-illustration">
