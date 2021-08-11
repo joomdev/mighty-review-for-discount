@@ -1,7 +1,7 @@
 # Mighty WooCommerce Review for Discount
 
 Author URI: https://mightythemes.com
-Plugin URI: https://mightythemes.com/mighty-review-for-discount
+Plugin URI: https://mightythemes.com/product/mighty-woocommerce-review-for-discount
 Contributors: mightythemes1
 Tags: woocommerce, woo, discount, coupons
 Requires at least: 4.0 or higher

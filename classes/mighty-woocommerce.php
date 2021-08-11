@@ -83,7 +83,7 @@ class Mighty_Woocommerce {
 
 		array_unshift( $links, $settings_link );
 		
-		$links['go_pro'] = sprintf( '<a style="color: #142D75; font-weight: bold;" href="%1$s" target="_blank">%2$s</a>', 'https://mightythemes.com/product/mighty-review-for-discount', __( 'Go Pro', 'mighty-rfd' ) );
+		$links['go_pro'] = sprintf( '<a style="color: #142D75; font-weight: bold;" href="%1$s" target="_blank">%2$s</a>', 'https://mightythemes.com/product/mighty-woocommerce-review-for-discount', __( 'Go Pro', 'mighty-rfd' ) );
 
 		return $links;
 	}

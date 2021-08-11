@@ -38,7 +38,7 @@ if (!defined('ABSPATH')) {
 
     <div class="docs-link">
         <a target="_blank" href="https://mightythemes.com/docs/docs-category/mighty-rfd"><span class="dashicons dashicons-media-document"></span> Documentation</a>
-        <a target="_blank" href="https://mightythemes.com/support/c/mighty-review-for-discount"><span class="dashicons dashicons-editor-help"></span> Help</a>
+        <a target="_blank" href="https://mightythemes.com/support/c/mighty-woocommerce-review-for-discount"><span class="dashicons dashicons-editor-help"></span> Help</a>
     </div>
 </ul>
 

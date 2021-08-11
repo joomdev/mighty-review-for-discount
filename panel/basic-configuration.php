@@ -171,7 +171,7 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
             <h2 class="block-heading">Email Settings for Customer Close to the Target <span class="pro-tag">[PRO]</span></h2>
 
             <table class="form-table">
-                <p>Available in Pro. <a target="_blank" href="https://mightythemes.com/product/mighty-review-for-discount">Upgrade today</a>.</p>
+                <p>Available in Pro. <a target="_blank" href="https://mightythemes.com/product/mighty-woocommerce-review-for-discount">Upgrade today</a>.</p>
             </table>
         </div>
         

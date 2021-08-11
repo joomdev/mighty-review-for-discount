@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mighty WooCommerce Review for Discount
  * Description: Mighty WooCommerce Review For Discount helps you to increase engagement by collecting reviews from your customers and providing coupons.
- * Plugin URI: https://mightythemes.com/mighty-review-for-discount
+ * Plugin URI: https://mightythemes.com/product/mighty-woocommerce-review-for-discount
  * Version: 1.0.0
  * Author: MightyThemes1
  * Author URI:  https://mightythemes.com/

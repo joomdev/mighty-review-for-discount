@@ -21,7 +21,7 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
             <p class="basic-desc">Need more features?</strong></p>
             <p class="sub-desc">Updgrade now for more cool and other advanced features.</p>
             
-            <a href="https://mightythemes.com/product/mighty-review-for-discount" target="_blank" class="upgrade-btn" role="button">Go Pro 🚀</a>
+            <a href="https://mightythemes.com/product/mighty-woocommerce-review-for-discount" target="_blank" class="upgrade-btn" role="button">Go Pro 🚀</a>
 
             <ul class="pro-features">
                 <li><span class="dashicons dashicons-saved"></span> Multiple discount trigger points</li>
