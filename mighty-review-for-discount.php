@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Mighty WooCommerce Review for Discount
- * Description: Mighty WooCommerce Review For Discount helps you to increase engagement by collecting reviews from your customers and providing coupons.
- * Plugin URI: https://mightythemes.com/product/mighty-woocommerce-review-for-discount
+ * Plugin Name: Mighty Review for Discount
+ * Description: Mighty Review For Discount helps you to increase engagement by collecting reviews from your customers and providing coupons.
+ * Plugin URI: https://mightythemes.com/product/mighty-review-for-discount
  * Version: 1.0.0
  * Author: MightyThemes1
  * Author URI:  https://mightythemes.com/
@@ -19,9 +19,6 @@ define( 'MIGHTY_RFD_VERSION', '1.0.0' );
 define( 'MIGHTY_RFD_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'MIGHTY_RFD_PLG_URL', plugin_dir_url( __FILE__ ) );
 define( 'MIGHTY_RFD_PLG_BASENAME', plugin_basename( __FILE__ ) );
-define( 'MRFD_STORE_URL', 'http://mightythemes.com' );
-define( 'MRFD_ITEM_NAME', 'Mighty WooCommerce Review For Discount' );
-define( 'MRFD_ITEM_ID', 14667 );
 
 /**
  * Main Mighty RFD Class
@@ -171,7 +168,7 @@ final class Mighty_RFD {
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: WooCommerce */
 			esc_html__( '%1$s requires %2$s to be installed and activated.', 'mighty-rfd' ),
-			'<strong>' . esc_html__( 'Mighty WooCommerce Review For Discount', 'mighty-rfd' ) . '</strong>',
+			'<strong>' . esc_html__( 'Mighty Review For Discount', 'mighty-rfd' ) . '</strong>',
 			'<strong>' . esc_html__( 'WooCommerce', 'mighty-rfd' ) . '</strong>'
 		);
 
@@ -194,7 +191,7 @@ final class Mighty_RFD {
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: WooCommerce 3: Required WooCommerce version */
 			esc_html__( '%1$s requires %2$s version %3$s or greater.', 'mighty-rfd' ),
-			'<strong>' . esc_html__( 'Mighty WooCommerce Review For Discount', 'mighty-rfd' ) . '</strong>',
+			'<strong>' . esc_html__( 'Mighty Review For Discount', 'mighty-rfd' ) . '</strong>',
 			'<strong>' . esc_html__( 'WooCommerce', 'mighty-rfd' ) . '</strong>',
 			self::MINIMUM_WOOCOMMERCE_VERSION
 		);
@@ -218,7 +215,7 @@ final class Mighty_RFD {
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
 			esc_html__( '%1$s requires %2$s version %3$s or greater.', 'mighty-rfd' ),
-			'<strong>' . esc_html__( 'Mighty WooCommerce Review For Discount', 'mighty-rfd' ) . '</strong>',
+			'<strong>' . esc_html__( 'Mighty Review For Discount', 'mighty-rfd' ) . '</strong>',
 			'<strong>' . esc_html__( 'PHP', 'mighty-rfd' ) . '</strong>',
 			self::MINIMUM_PHP_VERSION
 		);

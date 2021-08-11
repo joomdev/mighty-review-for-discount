@@ -9,8 +9,8 @@ if (!defined('ABSPATH')) {
     <div class="mighty-brand">
 
         <div class="brand">
-            <img class="logo" src="<?php echo MIGHTY_RFD_PLG_URL . 'assets/images/mighty-rfd-logo.png'; ?>" alt="Mighty WooCommerce Review For Discount logo">
-            <span class="mighty-product-name">Mighty WooCommerce Review For Discount | v<?php echo MIGHTY_RFD_VERSION; ?></span>
+            <img class="logo" src="<?php echo MIGHTY_RFD_PLG_URL . 'assets/images/mighty-rfd-logo.png'; ?>" alt="Mighty Review For Discount logo">
+            <span class="mighty-product-name">Mighty Review For Discount | v<?php echo MIGHTY_RFD_VERSION; ?></span>
         </div>
 
         <a href="https://mightythemes.com" target="_BLANK" class="mighty-more-themes-plugins-button"><span class="dashicons dashicons-cart"></span> More WP Themes &amp; Plugins</a>
@@ -38,7 +38,7 @@ if (!defined('ABSPATH')) {
 
     <div class="docs-link">
         <a target="_blank" href="https://mightythemes.com/docs/docs-category/mighty-rfd"><span class="dashicons dashicons-media-document"></span> Documentation</a>
-        <a target="_blank" href="https://mightythemes.com/support/c/mighty-woocommerce-review-for-discount"><span class="dashicons dashicons-editor-help"></span> Help</a>
+        <a target="_blank" href="https://mightythemes.com/support/c/mighty-review-for-discount"><span class="dashicons dashicons-editor-help"></span> Help</a>
     </div>
 </ul>
 
