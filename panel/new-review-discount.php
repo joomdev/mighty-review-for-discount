@@ -24,7 +24,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                             <label for="coupon_description">Coupon Description</label>
                         </th>
                         <td>
-                            <textarea class="regular-text" name="coupon_description" id="coupon_description" cols="30" rows="10"><?php echo get_post_meta( $post->ID, 'mighty_coupon_description', true ); ?></textarea>
+                            <textarea class="regular-text" name="coupon_description" id="coupon_description" cols="30" rows="10"><?php echo esc_html( get_post_meta( $post->ID, 'mighty_coupon_description', true ) ); ?></textarea>
                         </td>
                     </tr>
 
@@ -59,7 +59,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                             <label for="coupon_amount">Percentage</label>
                         </th>
                         <td>
-                            <input class="regular-text" name="coupon_amount" id="coupon_amount" type="number" value="<?php echo get_post_meta( $post->ID, 'mighty_coupon_amount', true ); ?>" >
+                            <input class="regular-text" name="coupon_amount" id="coupon_amount" type="number" value="<?php echo esc_html( get_post_meta( $post->ID, 'mighty_coupon_amount', true ) ); ?>" >
                         </td>
                     </tr>
 
@@ -68,7 +68,7 @@ $allCategories = \MightyRFD\Classes\HelperFunctions::get_product_categories();
                             <label for="expire_after_days">Expire After Days</label>
                         </th>
                         <td>
-                            <input class="regular-text" name="expire_after_days" id="expire_after_days" type="number" value="<?php echo get_post_meta( $post->ID, 'mighty_expire_after_days', true ); ?>" >
+                            <input class="regular-text" name="expire_after_days" id="expire_after_days" type="number" value="<?php echo esc_html( get_post_meta( $post->ID, 'mighty_expire_after_days', true ) ); ?>" >
                         </td>
                     </tr>
 

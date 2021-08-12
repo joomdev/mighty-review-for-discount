@@ -102,13 +102,13 @@ class Mighty_Discount
 
         switch( $column ) {
 
-            case 'description': echo isset( $discountMeta['mighty_coupon_description'] ) ? $discountMeta['mighty_coupon_description'] : '';
+            case 'description': echo isset( $discountMeta['mighty_coupon_description'] ) ? esc_html( $discountMeta['mighty_coupon_description'] ) : '';
             break;
 
-            case 'coupon_type' : echo isset( $discountMeta['mighty_discount_type'] ) ? ucwords( str_replace("_", " ", $discountMeta['mighty_discount_type'] ) ) : '';
+            case 'coupon_type' : echo isset( $discountMeta['mighty_discount_type'] ) ? ucwords( str_replace("_", " ", esc_html( $discountMeta['mighty_discount_type'] ) ) ) : '';
             break;
 
-            case 'trigger': echo isset( $discountMeta['mighty_triggering_event'] ) ? ucwords( str_replace("_", " ", $discountMeta['mighty_triggering_event'] ) ) : '';
+            case 'trigger': echo isset( $discountMeta['mighty_triggering_event'] ) ? ucwords( str_replace("_", " ", esc_html( $discountMeta['mighty_triggering_event'] ) ) ) : '';
             break;
 
             case 'status': echo ucfirst( get_post_status( $post_id ) );
@@ -193,8 +193,8 @@ class Mighty_Discount
             'mighty_expire_after_days' => wc_clean( $_POST['expire_after_days'] ),
             'mighty_enable_free_shipping' => '',
             'mighty_only_send_to_verified_users' => '',
-            'mighty_single_use_only' => $_POST['single_use_only'] ?? false,
-            'mighty_individual_use_only' => $_POST['individual_use_only'] ?? false,
+            'mighty_single_use_only' => wc_clean( $_POST['single_use_only'] ) ?? false,
+            'mighty_individual_use_only' => wc_clean( $_POST['individual_use_only'] ) ?? false,
             'mighty_exclude_sale_items' => '',
             'mighty_minimum_spending_amount' => '',
             'mighty_maximum_spending_amount' => '',

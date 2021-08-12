@@ -140,18 +140,18 @@ if ( ! class_exists( 'DashboardPanel' ) ) {
             // Saving data after submission
             if( isset( $_POST['mighty-basic-configuration'] ) ) {
                 $basicConfig = [
-                    'enable_rfd' => $_POST['enable_rfd'] ?? false,
+                    'enable_rfd' => wc_clean( $_POST['enable_rfd'] ) ?? false,
                     'trigger_discount' => wc_clean( $_POST['trigger_discount'] ),
-                    'delete_expired_coupons' => $_POST['delete_expired_coupons'] ?? false,
+                    'delete_expired_coupons' => wc_clean( $_POST['delete_expired_coupons'] ) ?? false,
                     'single_review_email_type' => wc_clean( $_POST['single_review_email_type'] ),
-                    'single_review_email_subject' => str_replace('\\', '', $_POST['single_review_email_subject'] ),
-                    'single_review_email_content' => str_replace('\\', '', $_POST['single_review_email_content'] ),
+                    'single_review_email_subject' => str_replace('\\', '', wc_clean( $_POST['single_review_email_subject'] ) ),
+                    'single_review_email_content' => str_replace('\\', '', wc_clean( $_POST['single_review_email_content'] ) ),
                     'multiple_review_email_type' => '',
                     'multiple_review_email_subject' => '',
                     'multiple_review_email_content' => '',
-                    'reminder_email_type' => $_POST['reminder_email_type'],
-                    'reminder_email_subject' => str_replace('\\', '', $_POST['reminder_email_subject'] ),
-                    'reminder_email_content' => str_replace('\\', '', $_POST['reminder_email_content'] ),
+                    'reminder_email_type' => wc_clean( $_POST['reminder_email_type'] ),
+                    'reminder_email_subject' => str_replace('\\', '', wc_clean( $_POST['reminder_email_subject'] ) ),
+                    'reminder_email_content' => str_replace('\\', '', wc_clean( $_POST['reminder_email_content'] ) ),
                     'close_target_email_type' => '',
                     'close_target_email_subject' => '',
                     'close_target_email_content' => ''

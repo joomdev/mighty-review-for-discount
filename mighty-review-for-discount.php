@@ -3,7 +3,7 @@
  * Plugin Name: Mighty Review for Discount
  * Description: Mighty Review For Discount helps you to increase engagement by collecting reviews from your customers and providing coupons.
  * Plugin URI: https://mightythemes.com/product/mighty-review-for-discount
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: MightyThemes1
  * Author URI:  https://mightythemes.com/
  * Text Domain: mighty-rfd
@@ -15,7 +15,7 @@ namespace Mighty_RFD;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'MIGHTY_RFD_VERSION', '1.0.0' );
+define( 'MIGHTY_RFD_VERSION', '1.0.1' );
 define( 'MIGHTY_RFD_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'MIGHTY_RFD_PLG_URL', plugin_dir_url( __FILE__ ) );
 define( 'MIGHTY_RFD_PLG_BASENAME', plugin_basename( __FILE__ ) );

@@ -76,7 +76,7 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
                             <label for="reminder_email_subject">Email Subject</label>
                         </th>
                         <td>
-                            <input class="regular-text" name="reminder_email_subject" id="reminder_email_subject" type="text" value="<?php echo $data['reminder_email_subject']; ?>">
+                            <input class="regular-text" name="reminder_email_subject" id="reminder_email_subject" type="text" value="<?php echo esc_attr( $data['reminder_email_subject'] ); ?>">
                             <br>
                             <span class="description">Use Shortcodes:<br><b>{site_title}</b> | <b>{customer_name}</b></span>
                         </td>
@@ -87,7 +87,7 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
                             <label for="reminder_email_content">Email Content</label>
                         </th>
                         <td>
-                            <textarea class="regular-text" name="reminder_email_content" id="reminder_email_content" cols="30" rows="10"><?php echo $data['reminder_email_content']; ?></textarea>
+                            <textarea class="regular-text" name="reminder_email_content" id="reminder_email_content" cols="30" rows="10"><?php echo esc_attr( $data['reminder_email_content'] ); ?></textarea>
                             <br>
                             <span class="description">Use Shortcodes:<br><b>{site_title}</b> | <b>{customer_name}</b> | <b>{customer_email}</b> | <b>{product_name}</b></span>
                         </td>
@@ -129,7 +129,7 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
                             <label for="single_review_email_subject">Email Subject</label>
                         </th>
                         <td>
-                            <input class="regular-text" name="single_review_email_subject" id="single_review_email_subject" type="text" value="<?php echo $data['single_review_email_subject']; ?>">
+                            <input class="regular-text" name="single_review_email_subject" id="single_review_email_subject" type="text" value="<?php echo esc_attr( $data['single_review_email_subject'] ); ?>">
                             <br>
                             <span class="description">Use Shortcodes:<br><b>{site_title}</b> | <b>{customer_name}</b></b></span>
                         </td>
@@ -140,7 +140,7 @@ include_once MIGHTY_RFD_DIR_PATH . 'includes/header.php';
                             <label for="single_review_email_content">Email Content</label>
                         </th>
                         <td>
-                            <textarea class="regular-text" name="single_review_email_content" id="single_review_email_content" cols="30" rows="10"><?php echo $data['single_review_email_content']; ?></textarea>
+                            <textarea class="regular-text" name="single_review_email_content" id="single_review_email_content" cols="30" rows="10"><?php echo esc_attr( $data['single_review_email_content'] ); ?></textarea>
                             <br>
                             <span class="description">Use Shortcodes:<br><b>{site_title}</b> | <b>{customer_name}</b> | <b>{customer_email}</b> | <b>{product_name}</b> | <b>{coupon_description}</b></span>
                         </td>
