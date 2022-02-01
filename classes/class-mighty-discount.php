@@ -25,7 +25,7 @@ class Mighty_Discount
 
     public function __construct() {
 
-        add_action('init', [$this, 'register_discount_post']);
+        add_action( 'init', [ $this, 'register_discount_post' ] );
 
         add_filter( 'manage_mighty-discount_posts_columns', [ $this, 'set_custom_columns' ] );
 

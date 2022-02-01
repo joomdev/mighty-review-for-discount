@@ -141,6 +141,12 @@ final class Mighty_RFD {
 			return;
 		}
 
+		// Checking if Pro Version is installed
+		if( in_array( 'mighty-review-for-discount-pro/mighty-review-for-discount.php', array_keys( get_plugins() ) ) ) {
+            add_action( 'admin_notices', [ $this, 'admin_notice_pro_installed' ] );
+			return;
+        }
+
 		// Say hello to my little friend - Helper
 		require_once ( MIGHTY_RFD_DIR_PATH . 'classes/class-helper-functions.php' );
 
@@ -218,6 +224,26 @@ final class Mighty_RFD {
 			'<strong>' . esc_html__( 'Mighty Review For Discount', 'mighty-rfd' ) . '</strong>',
 			'<strong>' . esc_html__( 'PHP', 'mighty-rfd' ) . '</strong>',
 			self::MINIMUM_PHP_VERSION
+		);
+
+		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+	}
+
+	/**
+	 * Admin notice
+	 *
+	 * Warning when both FREE and PRO is installed.
+	 *
+	 * @since 1.0.1
+	 * @access public
+	 */
+	public function admin_notice_pro_installed() {
+
+		$message = sprintf(
+			/* translators: 1: Plugin name 2: Pro Version */
+			esc_html__( 'Please deactivate the %1$s to use the %2$s version.', 'mighty' ),
+			'<strong>' . esc_html__( 'Mighty RFD Free', 'mighty' ) . '</strong>',
+			'<strong>' . esc_html__( 'Pro', 'mighty' ) . '</strong>'
 		);
 
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
