@@ -142,6 +142,10 @@ final class Mighty_RFD {
 		}
 
 		// Checking if Pro Version is installed
+		if ( ! function_exists( 'get_plugins' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+		
 		if( in_array( 'mighty-review-for-discount-pro/mighty-review-for-discount.php', array_keys( get_plugins() ) ) ) {
             add_action( 'admin_notices', [ $this, 'admin_notice_pro_installed' ] );
 			return;
