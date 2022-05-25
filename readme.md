@@ -4,7 +4,7 @@ Author URI: https://mightythemes.com
 Plugin URI: https://mightythemes.com/product/mighty-review-for-discount
 Contributors: mightythemes1
 Requires at least: 4.0 or higher
-Tested up to: 5.8
+Tested up to: 6.0
 Requires PHP: 5.6
 Stable Tag: 1.0.0
 License: GPLv2 or later
